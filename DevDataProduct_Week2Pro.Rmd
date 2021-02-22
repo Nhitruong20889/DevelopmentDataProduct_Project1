@@ -1,0 +1,50 @@
+---
+title: "Development Data Products_Leaflet"
+author: "NT"
+date: "Feb 21 2021"
+output:
+  pdf_document: default
+  html_document: default
+---
+# Instructions
+(From Coursera's Instruction)
+Create a web page using R Markdown that features a map created with Leaflet.
+Host your webpage on either GitHub Pages, RPubs, or NeoCities.
+
+Your webpage must contain the date that you created the document, and it must contain a map created with Leaflet. We would love to see you show off your creativity!
+
+# Review criteria
+(From Coursera's Instruction)
+The rubric contains the following two questions:
+- Does the web page feature a date and is this date less than two months before the date that you’re grading this assignment?
+- Does the web page feature an interactive map that appears to have been created with Leaflet?
+
+# Submission
+Here is the Space Needle, PikePlace Market, Seattle Aquarium, Westlake Center and Seattle Waterfront of Seattle, WA, U.S.A
+## Create a leaflet map object.
+```{{r setup, include=FALSE}}
+library(leaflet)
+library(knitr)
+library(dplyr)
+```
+Add the marker to the map and display the map.
+```{r}
+map <-leaflet() %>%
+   addTiles() %>%
+   addMarkers(lat=47.6205131,lng= -122.3493036,popup = "SpaceNeedle, Seattle")%>%
+   addMarkers(lat=47.60621,lng= -122.33207,popup = "PikePlaceMarket, Seattle")%>%
+   addMarkers(lat=47.6078027,lng= -122.3431833,popup = "Seattle Aquarium, Seattle")%>%
+   addMarkers(lat=47.6119908,lng= -122.3373914,popup = "Westlake Center, Seattle")%>%
+   addMarkers(lat=47.6050808,lng= -122.3408405,popup = "Seattle Waterfront, Seattle")
+ map 
+```
+
+
+``` {r}
+#For FUN: cluster and circle markers
+#dcluster <- data.frame(lat=runif(50, min=47.50, max =47.70 ),
+                 #lng=runif(50, min=-122.35, max = -122.25 ))    
+#leaflet(dcluster) %>% addTiles() %>% addCircleMarkers()
+#dcluster %>%leaflet() %>%addTiles() %>%  
+#addMarkers(clusterOptions = markerClusterOptions())  
+```
